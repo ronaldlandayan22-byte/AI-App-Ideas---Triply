@@ -1,0 +1,5 @@
+{
+  "name": "Triply",
+  "description": "Generate a custom travel itinerary for any destination.",
+  "requestFramePermissions": []
+}

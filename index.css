@@ -1,0 +1,363 @@
+/* Basic reset and typography */
+html {
+  height: 100%;
+  background-color: #f0f4f8; /* Fallback color */
+  /* Static background image for initial load */
+  background-image: url('https://images.unsplash.com/photo-1501785888041-af3ef285b470?q=80&w=1920&auto=format&fit=crop');
+  background-size: cover;
+  background-position: center;
+  background-attachment: fixed;
+  transition: background-image 0.5s ease-in-out;
+}
+
+body {
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica,
+    Arial, sans-serif;
+  color: #333;
+  margin: 0;
+  padding: 2rem;
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  min-height: 100%;
+}
+
+.logo {
+  position: absolute;
+  top: 2rem;
+  left: 2rem;
+  z-index: 10;
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  color: #fff;
+  filter: drop-shadow(0 2px 5px rgba(0, 0, 0, 0.5));
+  cursor: pointer;
+}
+
+.logo svg {
+  width: 40px;
+  height: 40px;
+  stroke: currentColor;
+}
+
+.logo span {
+  font-size: 2rem;
+  font-weight: bold;
+  text-shadow: 0 2px 4px rgba(0,0,0,0.4);
+}
+
+main {
+  max-width: 800px;
+  width: 100%;
+  background-color: transparent;
+  padding: 6rem 0 0 0; /* Add top padding to avoid overlap with logo */
+  border-radius: 0;
+  box-shadow: none;
+  backdrop-filter: none;
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+
+/* Form */
+form {
+  display: flex;
+  gap: 1rem;
+}
+
+.input-group {
+  display: flex;
+  flex-grow: 1;
+  gap: 1rem;
+}
+
+input[type='text'],
+input[type='date'] {
+  padding: 0.75rem 1rem;
+  font-size: 1rem;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  transition: box-shadow 0.2s;
+  flex-grow: 1; /* Allow inputs to grow */
+  background-color: #fff;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+}
+
+input[type='text'] {
+  flex-grow: 2; /* Destination input takes more space */
+}
+
+input[type='text']:focus,
+input[type='date']:focus {
+  outline: none;
+  border-color: #0077b6;
+  box-shadow: 0 0 0 3px rgba(0, 119, 182, 0.2);
+}
+
+button {
+  padding: 0.75rem 1.5rem;
+  font-size: 1rem;
+  font-weight: bold;
+  color: white;
+  background-color: #0077b6;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: background-color 0.2s;
+}
+
+button:hover {
+  background-color: #005f73;
+}
+
+button:disabled {
+  background-color: #aaa;
+  cursor: not-allowed;
+}
+
+/* Loading Spinner */
+.loader {
+  border: 4px solid #f3f3f3;
+  border-top: 4px solid #0077b6;
+  border-radius: 50%;
+  width: 40px;
+  height: 40px;
+  animation: spin 1s linear infinite;
+  margin: 2rem auto;
+  display: none; /* Hidden by default */
+}
+
+@keyframes spin {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+/* Error Display */
+.error-display {
+  color: #fff;
+  font-weight: bold;
+  text-align: center;
+  margin-top: 1rem;
+  background-color: rgba(217, 4, 41, 0.8);
+  padding: 1rem;
+  border-radius: 8px;
+}
+
+/* Itinerary Page Results */
+#itinerary-page {
+  width: 100%;
+  box-sizing: border-box;
+  background-color: rgba(0, 0, 0, 0.5); /* Dark overlay for readability */
+  color: #f0f0f0; /* Light text color */
+  padding: 2rem;
+  padding-top: 6rem; /* Make space for logo */
+  border-radius: 16px;
+  backdrop-filter: blur(5px);
+  line-height: 1.6;
+  text-shadow: 0 1px 3px rgba(0, 0, 0, 0.4);
+}
+
+/* Wrapper to constrain content width for readability */
+.itinerary-content {
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+.day-itinerary {
+  margin-top: 2rem;
+  border-top: 1px solid rgba(255, 255, 255, 0.3);
+  padding-top: 1.5rem;
+}
+
+.day-itinerary:first-of-type {
+  margin-top: 0;
+  border-top: none;
+  padding-top: 0;
+}
+
+.day-itinerary h2 {
+  color: #fff;
+  margin-bottom: 1.5rem;
+  font-weight: 600;
+}
+
+.category-section {
+  margin-top: 1.5rem;
+}
+
+.category-section h3 {
+  color: #e0e0e0;
+  margin-bottom: 0.5rem;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+  padding-bottom: 0.5rem;
+  font-weight: 500;
+}
+
+.category-section ul {
+  list-style-type: none;
+  padding-left: 0;
+  margin: 0;
+}
+
+.category-section li {
+  margin-bottom: 1rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  gap: 1rem;
+}
+
+.category-section label {
+  display: flex;
+  align-items: flex-start;
+  gap: 0.75rem;
+  cursor: pointer;
+  flex-grow: 1; /* Allow label to take up available space */
+  transition: color 0.2s;
+}
+
+.category-section input[type='checkbox'] {
+  width: 1.25em;
+  height: 1.25em;
+  cursor: pointer;
+  flex-shrink: 0;
+  margin-top: 0.15em;
+}
+
+/* When a label contains a checked checkbox, change its color */
+.category-section label:has(input[type='checkbox']:checked) {
+  color: #4ade80; /* A nice, bright green */
+}
+.category-section label:has(input[type='checkbox']:checked) .activity-link {
+  color: #86efac;
+}
+
+.activity-content {
+  display: flex;
+  flex-direction: column;
+  gap: 0.2rem;
+}
+
+.activity-details {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 0.5rem;
+  line-height: 1.2;
+}
+
+.activity-description {
+  font-size: 0.9em;
+  color: #ccc;
+  margin: 0;
+  padding: 0;
+  font-style: italic;
+  line-height: 1.4;
+}
+
+.activity-link {
+  color: #f0f0f0;
+  text-decoration: none;
+  font-weight: 500;
+}
+
+.activity-link:hover {
+  text-decoration: underline;
+}
+
+.rating-info {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.25rem;
+  font-size: 0.9em;
+  color: #ccc;
+}
+
+.star-icon {
+  width: 1em;
+  height: 1em;
+  fill: #ffc107;
+  position: relative;
+  top: -1px;
+}
+
+.duration {
+  font-style: italic;
+  color: #ccc;
+  font-size: 0.9em;
+  transition: color 0.2s;
+}
+
+.activity-time {
+  font-weight: 500;
+  color: #e0e0e0;
+  white-space: nowrap;
+  flex-shrink: 0; /* Prevent time from wrapping */
+}
+
+.reroll-btn {
+  display: block;
+  margin: 2rem auto;
+  padding: 0.75rem 1.5rem;
+  font-size: 1rem;
+  font-weight: bold;
+  color: #333;
+  background-color: #f0f0f0;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: all 0.2s;
+}
+.reroll-btn:hover {
+  background-color: #fff;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.2);
+}
+.reroll-btn:disabled {
+  background-color: #ccc;
+  cursor: not-allowed;
+}
+
+@media (max-width: 600px) {
+  body {
+    padding: 1rem;
+    align-items: stretch;
+  }
+
+  main,
+  #itinerary-page {
+    padding: 1.5rem;
+    padding-top: 5rem;
+  }
+  
+  .logo {
+    top: 1.5rem;
+    left: 1.5rem;
+    gap: 0.5rem;
+  }
+
+  .logo svg {
+    width: 30px;
+    height: 30px;
+  }
+
+  .logo span {
+    font-size: 1.5rem;
+  }
+
+  main {
+    padding-top: 5rem;
+  }
+
+  form {
+    flex-direction: column;
+  }
+
+  .input-group {
+    flex-direction: column;
+  }
+}
